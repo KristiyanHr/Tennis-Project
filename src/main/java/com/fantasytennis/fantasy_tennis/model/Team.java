@@ -12,10 +12,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team{
+public class Team {
 
     @Id
-    @GeneratedValue(strategy = GeneratedType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String teamName;
@@ -28,14 +28,10 @@ public class Team{
     @JoinColumn(name = "tournament_id", nullable = false)
     private Tournament tournament;
 
-    @ManyToOne
-    @JoinTable(
-        name = "team_players",
-        joinColumns = @JoinColumn(name = "team_id"),
-        inverseJoinColumn = @JoinColumn(name = "player_id")
-    )
+    @ManyToMany
+    @JoinTable(name = "team_players", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "player_id"))
     private List<Player> players;
 
-    private int totalPoints = 0
+    private int totalPoints = 0;
     private int budgetRemaining = 100;
 }
