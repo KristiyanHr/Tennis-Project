@@ -25,6 +25,11 @@ public class TeamService {
         if (team.getPlayers().contains(player)) {
             throw new RuntimeException("Player already in this team");
         }
+
+        if(team.getPlayers().size() >= 8){
+            throw new RuntimeException("Your roster is full. Maximum 8 players are allowed!");
+        }
+
         if (team.getBudgetRemaining() < player.getCost()) {
             throw new RuntimeException("Not enough budget to buy this player");
         }
