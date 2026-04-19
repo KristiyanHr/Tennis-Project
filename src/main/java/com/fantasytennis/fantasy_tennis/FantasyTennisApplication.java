@@ -27,30 +27,34 @@ public class FantasyTennisApplication {
 			UserRepository userRepository,
 			TournamentRepository tournamentRepository,
 			TeamRepository teamRepository) {
+
 		return args -> {
 
-			Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25));
-			Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24));
-			Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22));
-			playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25));
-			playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23));
+			if (playerRepository.count() == 0) {
+				
+				Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25));
+				Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24));
+				Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22));
+				playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25));
+				playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23));
 
-			User me = userRepository.save(new User(null, "Kristiyan", "kriscohr@gmail.com", 1234));
+				User me = userRepository.save(new User(null, "Kristiyan", "kriscohr@gmail.com", 1234));
 
-			Tournament wimbledon = tournamentRepository.save(new Tournament(null, "Wimbledon", "Grass", 100, true));
-			Tournament australianOpen = tournamentRepository
-					.save(new Tournament(null, "Australian Open", "Hard", 100, true));
-			Tournament frenchOpen = tournamentRepository.save(new Tournament(null, "French Open", "Clay", 100, true));
-			Tournament usOpen = tournamentRepository.save(new Tournament(null, "US Open", "Hard", 100, true));
+				Tournament wimbledon = tournamentRepository.save(new Tournament(null, "Wimbledon", "Grass", 100, true));
+				Tournament australianOpen = tournamentRepository
+						.save(new Tournament(null, "Australian Open", "Hard", 100, true));
+				Tournament frenchOpen = tournamentRepository.save(new Tournament(null, "French Open", "Clay", 100, true));
+				Tournament usOpen = tournamentRepository.save(new Tournament(null, "US Open", "Hard", 100, true));
 
-			Team myTeam = new Team();
-			myTeam.setTeamName("Kristiyan`s Smashers");
-			myTeam.setUser(me);
-			myTeam.setTournament(wimbledon);
-			myTeam.setBudgetRemaining(wimbledon.getBudgetCap());
-			teamRepository.save(myTeam);
+				Team myTeam = new Team();
+				myTeam.setTeamName("Kristiyan`s Smashers");
+				myTeam.setUser(me);
+				myTeam.setTournament(wimbledon);
+				myTeam.setBudgetRemaining(wimbledon.getBudgetCap());
+				teamRepository.save(myTeam);
 
-			System.out.println("Dummy data setup complete! Ready to play.");
+				System.out.println("Dummy data setup complete! Ready to play.");
+			}
 		};
 	}
 

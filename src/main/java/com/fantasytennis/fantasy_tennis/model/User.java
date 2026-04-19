@@ -23,5 +23,5 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    private int totalPoints;
+    private Integer totalPoints;
 }
