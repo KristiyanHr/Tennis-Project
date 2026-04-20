@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.fantasytennis.fantasy_tennis.model.Player;
 import com.fantasytennis.fantasy_tennis.model.Team;
@@ -15,6 +16,7 @@ import com.fantasytennis.fantasy_tennis.repository.TournamentRepository;
 import com.fantasytennis.fantasy_tennis.repository.UserRepository;
 
 @SpringBootApplication
+@EnableScheduling
 public class FantasyTennisApplication {
 
 	public static void main(String[] args) {
@@ -32,11 +34,11 @@ public class FantasyTennisApplication {
 
 			if (playerRepository.count() == 0) {
 				
-				Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25, 0));
-				Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24, 0));
-				Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22, 0));
-				playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25, 0));
-				playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23, 0));
+				Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25, 0, 14882L));
+				Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24, 0, 275923L));
+				Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22, 0, 206570L));
+				playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25, 0, 228272L));
+				playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23, 0, 157754L));
 
 				User me = userRepository.save(new User(null, "Kristiyan", "kriscohr@gmail.com", 1234));
 

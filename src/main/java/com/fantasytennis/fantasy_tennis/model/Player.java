@@ -22,6 +22,6 @@ public class Player {
     private String country;
     private int cost;
     private Integer points;
-
+    private Long externalApiId;
 
 }
