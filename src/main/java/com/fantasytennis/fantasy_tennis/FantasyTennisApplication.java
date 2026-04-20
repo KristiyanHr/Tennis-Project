@@ -32,11 +32,11 @@ public class FantasyTennisApplication {
 
 			if (playerRepository.count() == 0) {
 				
-				Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25));
-				Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24));
-				Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22));
-				playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25));
-				playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23));
+				Player djokovic = playerRepository.save(new Player(null, "Novak Djokovic", 1, "Serbia", 25, 0));
+				Player alcaraz = playerRepository.save(new Player(null, "Carlos Alcaraz", 2, "Spain", 24, 0));
+				Player sinner = playerRepository.save(new Player(null, "Jannik Sinner", 3, "Italy", 22, 0));
+				playerRepository.save(new Player(null, "Iga Swiatek", 1, "Poland", 25, 0));
+				playerRepository.save(new Player(null, "Aryna Sabalenka", 2, "Belarus", 23, 0));
 
 				User me = userRepository.save(new User(null, "Kristiyan", "kriscohr@gmail.com", 1234));
 

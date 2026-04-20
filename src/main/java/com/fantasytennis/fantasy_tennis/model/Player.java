@@ -18,10 +18,10 @@ public class Player {
 
     @Column(nullable = false)
     private String name;
-
     private int ranking;
-
     private String country;
-
     private int cost;
+    private Integer points;
+
+
 }
