@@ -32,4 +32,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> getLeaderboard() {
+        return userRepository.findAllByOrderByTotalPointsDesc();
+    }
+
 }

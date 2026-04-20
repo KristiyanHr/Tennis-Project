@@ -25,4 +25,9 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+
+    @GetMapping("/leaderboard")
+    public List<User> getLeaderboard() {
+        return userService.getLeaderboard();
+    }
 }
