@@ -21,10 +21,12 @@ public class Team {
     private String teamName;
 
     @ManyToOne
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @JoinColumn(name = "tournament_id", nullable = false)
     private Tournament tournament;
 
